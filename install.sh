@@ -2,7 +2,7 @@
 
 #!/bin/bash
 echo "--------------------------------"
-echo -e "\032[1;33mCreated By saidmtanzania          |"
+echo "Created By saidmtanzania        |"
 echo "--------------------------------"
 
 
@@ -45,13 +45,13 @@ echo "-------starting installing------"
 sudo apt-get --yes update
 sudo apt install --yes python3-pip python3-dev python3-venv nginx mysql-client
 python3 -m venv env
-source env/bin/activate
+. env/bin/activate
 pip3 install -r requirement.txt
 deactivate
 sudo service nginx start
 sudo service nginx stop
-sed -i "s?CREATE DATABASE .*?CREATE DATABASE IF NOT EXISTS \`$8\` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;?" db.sql
-sed -i "s?USE .*?USE \`$8\`;?" db.sql
+sed -i "s?CREATE DATABASE .*?CREATE DATABASE IF NOT EXISTS \`$8\` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;?" dbs.sql
+sed -i "s?USE .*?USE \`$8\`;?" dbs.sql
 mysql -h $1 -u $6 -P 3306 --password=$7 < dbs.sql
 
 sed -i "s?DB_HOST=.*?DB_HOST=\"$1\"?" app.py
@@ -80,5 +80,5 @@ sudo systemctl start aws-app
 sudo systemctl restart aws-app
 sudo systemctl restart nginx
 
-echo "-------Done!!!!!!------"
-echo -e "\033[1;33mSNow visit http://$ip  ...."
+echo "-------Finished------"
+echo "Visit http://$ip .."
