@@ -1,8 +1,8 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-CREATE DATABASE IF NOT EXISTS `cp424db` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `cp424db`;
+CREATE DATABASE IF NOT EXISTS ` mydb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `mydb`;
 
 
 CREATE TABLE `posts` (
@@ -23,7 +23,7 @@ CREATE TABLE `users` (
 
 
 INSERT INTO `users` (`id`, `user_name`, `user_email`, `user_password`) VALUES
-(1, 'lymo', 'peterlymo@gmail.com', 'pbkdf2:sha256:600000$GCrdbe8A7r5hlmL6$7e488c570e4a3e378cb884c7076ab08067469280aeab6a2d6570b6e1f2239888');
+(1, 'saidmtanzania', 'saidmtanzania@gmail.com', 'pbkdf2-sha256$600000$RqIhP4ZqNGprNGpgPrNZ$EKRc0TSOir5eUfKLQyr3Ay89DdJeF6pE6vTy.MbV4ag=');
 
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
